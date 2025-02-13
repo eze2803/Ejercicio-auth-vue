@@ -1,25 +1,53 @@
+import ConsultarView from '@/views/ConsultarView.vue'
+import EnviarView from '@/views/EnviarView.vue'
+import LoginView from '@/views/LoginView.vue'
+import RegisterView from '@/views/RegisterView.vue'
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { useAuthStore } from '@/store/auth'
+
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/login',
+    name: 'login',
+    component: LoginView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/register',
+    name: 'register',
+    component: RegisterView
+  },
+  {
+    path: '/enviar',
+    name: 'enviar',
+    component: EnviarView,
+    meta: { requiresAuth: true }
+
+  },
+  {
+    path: '/consultar',
+    name: 'consultar',
+    component: ConsultarView,
+    meta: { requiresAuth: true }
   }
+
+
+
+
+
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore();
+  if (to.meta.requiresAuth && !authStore.token) {
+    next('/login'); // ✅ Redirige al login si no está autenticado
+  } else {
+    next(); // ✅ Permite la navegación
+  }
+});
 
 export default router
