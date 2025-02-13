@@ -1,5 +1,5 @@
 <template>
-    <div class="form-floating mb-3">
+    <div class="container">
         <h2>Mis Notas</h2>
         <button @click.prevent="consNote" type="submit"> Mostrar</button>
         <p v-if="error" class="error">{{ error }}</p>

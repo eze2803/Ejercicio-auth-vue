@@ -1,10 +1,19 @@
 <template>
     <div class="container">
-        <form action="">
-            <input v-model="name" type="text" placeholder="name">
-            <input v-model="email" type="email" placeholder="email">
-            <input v-model="password" type="password" placeholder="password">
-            <button type="submit" @click.prevent="regUser">send</button>
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label"> Name</label>
+                <input class="form-control" v-model="name" type="text" id="name">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input class="form-control" v-model="email" type="email" id="email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input class="form-control" v-model="password" type="password" id="password">
+            </div>
+            <button class="btn btn-primary" type="submit" @click.prevent="regUser">send</button>
         </form>
     </div>
 </template>
@@ -32,4 +41,15 @@ const regUser = async () => {
 </script>
 
 
-<style scoped></style>
+<style scoped>
+.container{
+    width: 400px;
+    height: 400px;
+    background-color: rgb(173, 173, 233);
+    
+    &.form-control{
+        padding: 20px;
+    }
+}
+
+</style>

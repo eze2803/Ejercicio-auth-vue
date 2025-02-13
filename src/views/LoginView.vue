@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
+    <div class="container-sm">
         <form>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <label for="exampleInputEmail1" class="form-label">Email </label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     v-model="email">
             </div>
