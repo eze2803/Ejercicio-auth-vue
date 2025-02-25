@@ -27,7 +27,6 @@ const sendNote = async () => {
     const succes = await send.send(content.value);
     console.log(succes);
     if (succes) {
-        alert("Nota enviada");
         router.push({ name: 'consultar' });
     } else {
         alert("Error");
