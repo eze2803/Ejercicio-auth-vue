@@ -1,9 +1,5 @@
 <template>
   <nav>
-    <router-link to="/register">registro</router-link> |
-    <router-link to="/login">login</router-link>|
-    <router-link to="/enviar">enviar nota</router-link>|
-    <router-link to="/consultar">consultar nota</router-link>
   </nav>
   <router-view />
 </template>
@@ -16,6 +12,7 @@
   text-align: center;
   color: #2c3e50;
 }
+
 // [
 // nav {
 //   padding: 30px;
@@ -28,5 +25,4 @@
 //       color: #42b983;
 //     }
 //   }]
-// }
-</style>
+// }</style>

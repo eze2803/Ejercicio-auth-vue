@@ -15,12 +15,14 @@
             </div>
             <button class="btn btn-primary" type="submit" @click.prevent="regUser">send</button>
         </form>
+        <router-link :to="{ name: 'login' }">Login</router-link>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
 import RegisterService from '../services/RegisterService';
+import router from '@/router';
 
 let name = ref('')
 let email = ref('')
@@ -31,7 +33,7 @@ const regUser = async () => {
     const success = await reg.regFunc(name.value, email.value, password.value);
     console.log(success)
     if (success) {
-        alert('register success');
+        router.push({ name: 'login' })
     } else {
         alert('register failed')
     }
@@ -42,14 +44,13 @@ const regUser = async () => {
 
 
 <style scoped>
-.container{
+.container {
     width: 400px;
     height: 400px;
-    background-color: rgb(173, 173, 233);
-    
-    &.form-control{
+    background-color: rgb(173, 236, 241);
+
+    &.form-control {
         padding: 20px;
     }
 }
-
 </style>
