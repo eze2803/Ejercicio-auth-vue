@@ -2,8 +2,8 @@
 ```
 Para utilizar el ejercicio esta el servidor que no es mio es de el profesor
 ```
-## Project setup
-```
+# Vista previa
+![Image](https://github.com/user-attachments/assets/4bf9405e-7fb5-4f14-92a9-58bbd2365d2d)
 npm install
 ```
 
